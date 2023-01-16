@@ -6,12 +6,10 @@ module.exports = {
     jest: true
   },
   parser: '@typescript-eslint/parser',
-  extends: [
-    'plugin:react/recommended',
-    'standard-with-typescript',
-    'plugin:prettier/recommended',
-    'plugin:jest/recommended'
-  ],
+  parserOptions: {
+    project: ['./tsconfig.json'] // Specify it only for TypeScript files
+  },
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier', 'plugin:jest/recommended'],
   overrides: [
     // Only use Testing Library lint rules in jest test files
     {
@@ -19,8 +17,14 @@ module.exports = {
       extends: ['plugin:testing-library/react']
     }
   ],
+
   plugins: ['react', 'testing-library', 'jest-dom', 'prettier', '@typescript-eslint'],
-  rules: { 'react/react-in-jsx-scope': 'off' },
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'jest/no-mocks-import': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
+  },
   settings: {
     react: {
       version: 'detect'

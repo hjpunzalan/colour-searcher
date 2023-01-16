@@ -7,7 +7,7 @@ interface Props {
   disabled: boolean;
 }
 
-export const SearchBar = ({ colour, setColour, disabled }: Props) => {
+export const SearchBar: React.FC<Props> = ({ colour, setColour, disabled }) => {
   return (
     <Label htmlFor="colour-search">
       Colour
