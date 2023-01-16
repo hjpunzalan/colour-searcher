@@ -3,3 +3,4 @@ vite.config.ts
 jest.config.cjs
 jest.setup.js
 coverage
+dist
