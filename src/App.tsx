@@ -1,8 +1,7 @@
 import '@/App.css';
 import { useEffect } from 'react';
 import 'virtual:fonts.css';
-
-const App = (props: Props) => {
+const App = () => {
   useEffect(() => {
     fetch(
       'https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkcd-colors.json'

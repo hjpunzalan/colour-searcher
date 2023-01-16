@@ -1,6 +1,13 @@
 module.exports = {
+  preset: 'ts-jest',
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
   coverageDirectory: 'coverage',
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  // to prevent non-test files from being interpreted as test files
+  testRegex: '\\.test\\.[jt]sx?$',
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/$1'
+  }
 };
