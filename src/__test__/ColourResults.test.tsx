@@ -43,11 +43,11 @@ test('Display result text for search colour', async () => {
   expect(searchColourText).toBeInTheDocument();
 });
 
-test('Display all colors text when search color is empty', async () => {
+test('Display all colours text when search color is empty', async () => {
   render(<ColourResults searchColour="" rawColours={[]} error={undefined} colours={[]} />);
 
-  const allColorsText = await screen.findByText(/all colors./i);
-  expect(allColorsText).toBeInTheDocument();
+  const allColoursText = await screen.findByText(/all colours./i);
+  expect(allColoursText).toBeInTheDocument();
 });
 
 test('Display Colour table when search colour is empty', async () => {

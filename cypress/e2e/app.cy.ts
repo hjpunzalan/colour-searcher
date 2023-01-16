@@ -2,27 +2,19 @@ import { XKCD_JSON } from '@/src/config';
 import '@testing-library/cypress';
 
 import { cy, it } from 'local-cypress';
+import { interceptIndefinitely } from '../support/utils';
 
 it('should display loading initially', () => {
   cy.visit('/');
-  // Create a Promise and capture a reference to its resolve
-  // function so that we can resolve it when we want to:
-  let sendResponse: (value?: unknown) => void;
-  const trigger = new Promise((resolve) => {
-    sendResponse = resolve;
-  });
-  cy.intercept({ method: 'GET', url: XKCD_JSON }, (request) => {
-    return trigger.then(() => {
-      request.reply();
-    });
-  });
+
+  const interception = interceptIndefinitely(XKCD_JSON);
 
   cy.findByText(/loading.../i)
     .should('exist')
     .then(() => {
       {
         // Stop loading
-        sendResponse();
+        interception.sendResponse();
       }
     });
 });
@@ -65,6 +57,8 @@ it('show button on error and refetch on click ', () => {
       }
     )
     .as('fetchData');
+
+  const interception = interceptIndefinitely(XKCD_JSON);
   cy.intercept(
     {
       method: 'GET',
@@ -72,7 +66,12 @@ it('show button on error and refetch on click ', () => {
     },
     (req) => req.continue()
   ).as('refetch');
+
   cy.findByRole('button', {
     name: /refetch/i
-  }).click();
+  })
+    .click()
+    .then(() => {
+      interception.sendResponse();
+    });
 });
