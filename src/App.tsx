@@ -46,7 +46,7 @@ const App = () => {
       const bColourDistance = colourDistance(searchColour, b.hex);
       return aColourDistance > bColourDistance ? 1 : -1;
     });
-    const top100Colours = sortColours.slice(0, 99);
+    const top100Colours = sortColours.slice(0, 100);
     setColours(top100Colours);
   }, [searchColour]);
 
