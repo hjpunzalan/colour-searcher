@@ -12,24 +12,30 @@ const App = () => {
   const [colours, setColours] = useState<ColourData[]>([]);
   const [colour, setColour] = useState('');
   const searchColour = useDebounce(colour);
-  const { data: rawColours, error } = useSWR('/api/xkcd-colors.json', async () => {
-    const res = await fetch(
-      'https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkcd-colors.json'
-    );
-    const data = (await res.json()) as ColourApiResponse;
-    // Add rgb and hsl data
-    const colourData = data.colors.map((c) => {
-      return {
-        ...c,
-        rgb: colord(c.hex).toRgbString(),
-        hsl: colord(c.hex).toHslString()
-      };
-    });
+  const { data: rawColours, error } = useSWR(
+    '/api/xkcd-colors.json',
+    async () => {
+      const res = await fetch(
+        'https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkcd-colors.json'
+      );
+      const data = (await res.json()) as ColourApiResponse;
+      // Add rgb and hsl data
+      const colourData = data.colors.map((c) => {
+        return {
+          ...c,
+          rgb: colord(c.hex).toRgbString(),
+          hsl: colord(c.hex).toHslString()
+        };
+      });
 
-    // Set colour group
-    setColours(colourData);
-    return colourData;
-  });
+      // Set colour group
+      setColours(colourData);
+      return colourData;
+    },
+    {
+      errorRetryCount: 0
+    }
+  );
 
   useEffect(() => {
     if (!rawColours) return;
