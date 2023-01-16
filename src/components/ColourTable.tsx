@@ -20,7 +20,7 @@ export const ColourTable: React.FC<Props> = ({ colours }) => {
       </thead>
       <tbody data-testid="colour-table-body">
         {colours.map((c) => (
-          <tr key={c.hex} style={{ marginBottom: '1rem' }}>
+          <tr key={c.hex}>
             <td>
               <ColourBox color={c.hex} style={{ backgroundColor: c.hex }} />
             </td>
@@ -38,6 +38,7 @@ export const ColourTable: React.FC<Props> = ({ colours }) => {
 const Table = styled.table`
   width: 100%;
   min-width: 800px;
+  border-spacing: 0 0.5rem;
 `;
 
 const TableHeadLabel = styled.td`
@@ -47,4 +48,5 @@ const TableHeadLabel = styled.td`
 const ColourBox = styled.div`
   width: 50px;
   height: 50px;
+  border-radius: 10px;
 `;

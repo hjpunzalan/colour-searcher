@@ -1,5 +1,5 @@
 import { HttpResponseInterceptor, RouteMatcher, StaticResponse } from 'cypress/types/net-stubbing';
-
+import { cy } from 'local-cypress';
 // Create a Promise and capture a reference to its resolve
 // function so that we can resolve it when we want to:
 export function interceptIndefinitely(

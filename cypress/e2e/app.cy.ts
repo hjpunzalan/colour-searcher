@@ -25,7 +25,7 @@ it('displays correct heading when on homepage', () => {
   }).should('exist');
 });
 
-it('should display all colours text', () => {
+it('should display all colours text initially after loading', () => {
   cy.visit('/');
   cy.findByText(/all colours./i).should('exist');
 });
@@ -45,7 +45,7 @@ it('display error message when fetch fails', () => {
   cy.findByText(/Error: unable to source XKCD colour file/i).should('exist');
 });
 
-it('show button on error and refetch on click ', () => {
+it('show button on error and refetch on click (display all colours)', () => {
   cy.visit('/')
     .intercept(
       {
@@ -57,8 +57,6 @@ it('show button on error and refetch on click ', () => {
       }
     )
     .as('fetchData');
-
-  const interception = interceptIndefinitely(XKCD_JSON);
   cy.intercept(
     {
       method: 'GET',
@@ -67,11 +65,9 @@ it('show button on error and refetch on click ', () => {
     (req) => req.continue()
   ).as('refetch');
 
+  // Refetch
   cy.findByRole('button', {
     name: /refetch/i
-  })
-    .click()
-    .then(() => {
-      interception.sendResponse();
-    });
+  }).click();
+  cy.findByTestId('colour-table-body').find('tr').should('have.length.at.least', 101);
 });
