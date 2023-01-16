@@ -9,13 +9,14 @@ interface Props {
 
 export const SearchBar = ({ colour, setColour, disabled }: Props) => {
   return (
-    <Label key="colour-search">
+    <Label htmlFor="colour-search">
       Colour
       <Row gap=".5rem">
         <Input
+          data-testid="colour-search"
           disabled={disabled}
           type="text"
-          name="colour-search"
+          id="colour-search"
           value={colour}
           onChange={(e) => {
             setColour(e.target.value);
@@ -23,10 +24,10 @@ export const SearchBar = ({ colour, setColour, disabled }: Props) => {
           placeholder="Enter Colour"
         />
         <Input
+          data-testid="colour-picker"
           style={{ padding: 0, cursor: 'pointer' }}
           disabled={disabled}
           type="color"
-          name="colour-picker"
           value={colour}
           onChange={(e) => {
             setColour(e.target.value);

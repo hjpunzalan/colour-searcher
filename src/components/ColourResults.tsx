@@ -2,6 +2,7 @@ import { Stack } from '@/src/App';
 import { colord } from 'colord';
 import styled from 'styled-components';
 import { useSWRConfig } from 'swr';
+import { XKCD_JSON } from '../config';
 import { ColourData } from '../lib/types';
 import { ColourTable } from './ColourTable';
 
@@ -25,7 +26,7 @@ export const ColourResults: React.FC<Props> = ({ searchColour, rawColours, colou
           onClick={() => {
             // https://swr.vercel.app/docs/mutation#revalidation
             // mutate will revalidate fetch
-            mutate('/api/xkcd-colors.json');
+            mutate(XKCD_JSON);
           }}>
           Refetch
         </Button>

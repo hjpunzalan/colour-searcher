@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useSWR from 'swr';
 import { ColourResults } from './components/ColourResults';
 import { SearchBar } from './components/SearchBar';
+import { XKCD_JSON } from './config';
 import useDebounce from './hooks/useDebounce';
 import { ColourApiResponse, ColourData } from './lib/types';
 import { colourDistance } from './lib/utils';
@@ -13,11 +14,9 @@ const App = () => {
   const [colour, setColour] = useState('');
   const searchColour = useDebounce(colour);
   const { data: rawColours, error } = useSWR(
-    '/api/xkcd-colors.json',
-    async () => {
-      const res = await fetch(
-        'https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkcd-colors.json'
-      );
+    XKCD_JSON,
+    async (url: string) => {
+      const res = await fetch(url);
       const data = (await res.json()) as ColourApiResponse;
       // Add rgb and hsl data
       const colourData = data.colors.map((c) => {
