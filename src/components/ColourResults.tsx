@@ -27,8 +27,7 @@ export const ColourResults: React.FC<Props> = ({ searchColour, rawColours, colou
             // https://swr.vercel.app/docs/mutation#revalidation
             // mutate will revalidate fetch
             mutate(XKCD_JSON);
-          }}
-        >
+          }}>
           Refetch
         </Button>
       </Stack>
@@ -42,7 +41,7 @@ export const ColourResults: React.FC<Props> = ({ searchColour, rawColours, colou
           Results for <ColourCode>"{searchColour}"</ColourCode>.
         </p>
       ) : (
-        'All Colors.'
+        'All Colours.'
       )}
       {colours.length > 0 && isValidOrEmpty && <ColourTable colours={colours} />}
     </Stack>
