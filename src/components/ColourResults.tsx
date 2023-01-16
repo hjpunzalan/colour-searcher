@@ -43,7 +43,9 @@ export const ColourResults: React.FC<Props> = ({ searchColour, rawColours, colou
       ) : (
         'All Colors.'
       )}
-      {colours.length > 0 && isValidOrEmpty && <ColourTable colours={colours} />}
+      {colours.length > 0 && isValidOrEmpty && (
+        <ColourTable colours={colours} />
+      )}
     </Stack>
   );
 };

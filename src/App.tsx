@@ -7,7 +7,7 @@ import { SearchBar } from './components/SearchBar';
 import { XKCD_JSON } from './config';
 import useDebounce from './hooks/useDebounce';
 import { ColourApiResponse, ColourData } from './lib/types';
-import { colourDistance } from './lib/utils';
+import { colourDistance, generateRGBHSL } from './lib/utils';
 
 const App = () => {
   const [colours, setColours] = useState<ColourData[]>([]);
@@ -19,16 +19,10 @@ const App = () => {
       const res = await fetch(url);
       const data = (await res.json()) as ColourApiResponse;
       // Add rgb and hsl data
-      const colourData = data.colors.map((c) => {
-        return {
-          ...c,
-          rgb: colord(c.hex).toRgbString(),
-          hsl: colord(c.hex).toHslString()
-        };
-      });
+      const colourData = generateRGBHSL(data.colors);
 
-      // Set colour group
-      setColours(colourData);
+      // Set colour group only if its empty (error or initial fetch)
+      if (colours.length === 0) setColours(colourData);
       return colourData;
     },
     {

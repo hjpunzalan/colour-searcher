@@ -21,7 +21,7 @@ export const ColourTable: React.FC<Props> = ({ colours }) => {
         {colours.map((c) => (
           <tr key={c.hex} style={{ marginBottom: '1rem' }}>
             <td>
-              <ColourBox color={c.hex} />
+              <ColourBox color={c.hex} style={{ backgroundColor: c.hex }} />
             </td>
             <td>{c.color}</td>
             <td>{c.hex}</td>
@@ -46,5 +46,4 @@ const TableHeadLabel = styled.td`
 const ColourBox = styled.div`
   width: 50px;
   height: 50px;
-  background-color: ${(props) => props.color};
 `;
