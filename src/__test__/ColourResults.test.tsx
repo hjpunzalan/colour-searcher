@@ -51,7 +51,7 @@ test('Display all colours text when search color is empty', async () => {
 });
 
 test('Display Colour table when search colour is empty', async () => {
-  const { fakeColourResponse } = await readFakeData();
+  const { fakeColourResponse } = readFakeData();
   const colours = generateRGBHSL(fakeColourResponse.colors);
   render(<ColourResults searchColour="" rawColours={[]} error={undefined} colours={colours} />);
 
@@ -60,7 +60,7 @@ test('Display Colour table when search colour is empty', async () => {
 });
 
 test('Display Colour table when search colour is valid', async () => {
-  const { fakeColourResponse } = await readFakeData();
+  const { fakeColourResponse } = readFakeData();
   const colours = generateRGBHSL(fakeColourResponse.colors);
   render(
     <ColourResults searchColour="#fff000" rawColours={[]} error={undefined} colours={colours} />
@@ -71,7 +71,7 @@ test('Display Colour table when search colour is valid', async () => {
 });
 
 test('Hide Colour table when search colour is not valid', async () => {
-  const { fakeColourResponse } = await readFakeData();
+  const { fakeColourResponse } = readFakeData();
   const colours = generateRGBHSL(fakeColourResponse.colors);
   render(<ColourResults searchColour="test" rawColours={[]} error={undefined} colours={colours} />);
 

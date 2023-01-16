@@ -4,7 +4,7 @@ import { readFakeData } from '../fakeData';
 
 export const handlers = [
   rest.get(XKCD_JSON, async (req, res, ctx) => {
-    const { fakeColourResponse } = await readFakeData();
+    const { fakeColourResponse } = readFakeData();
     return res(ctx.json(fakeColourResponse));
   })
 ];

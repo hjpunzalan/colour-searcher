@@ -12,7 +12,7 @@ test('ColoursTable should be hidden if theres no colours', () => {
 });
 
 test('ColoursTable should be visible with valid colours', async () => {
-  const { fakeColourResponse } = await readFakeData();
+  const { fakeColourResponse } = readFakeData();
   const colours = generateRGBHSL(fakeColourResponse.colors);
   render(<ColourTable colours={colours} />);
 
@@ -21,7 +21,7 @@ test('ColoursTable should be visible with valid colours', async () => {
 });
 
 test('ColoursTable should have correct table heads', async () => {
-  const { fakeColourResponse } = await readFakeData();
+  const { fakeColourResponse } = readFakeData();
   const colours = generateRGBHSL(fakeColourResponse.colors);
   render(<ColourTable colours={colours} />);
 
@@ -35,7 +35,7 @@ test('ColoursTable should have correct table heads', async () => {
 });
 
 test('table body should have correct number of children and has correct table data', async () => {
-  const { fakeColourResponse } = await readFakeData();
+  const { fakeColourResponse } = readFakeData();
   const dataLength = fakeColourResponse.colors.length;
   const colours = generateRGBHSL(fakeColourResponse.colors.slice(0, dataLength));
   render(<ColourTable colours={colours} />);

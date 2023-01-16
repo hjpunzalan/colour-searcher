@@ -71,3 +71,26 @@ it('show button on error and refetch on click (display all colours)', () => {
   }).click();
   cy.findByTestId('colour-table-body').find('tr').should('have.length.at.least', 101);
 });
+
+it('displays top 100 similar colours with valid colour code input text', () => {
+  cy.visit('/');
+  cy.findByLabelText(/colour/i).type('#ff0000');
+
+  // Check text includes results for "colour"
+  cy.findByText(/results for/i).should('exist');
+  cy.findByText(/ff0000"/i).should('exist');
+
+  // Check number of similar colours is 100
+  cy.findByTestId('colour-table-body').find('tr').should('have.length', 100);
+
+  // Check top 3 result is very close to red
+  for (let i = 0; i <= 2; i++) {
+    cy.findByTestId('colour-table-body')
+      .children()
+      .eq(i)
+      .children()
+      .eq(1)
+      .findByText(/red/i)
+      .should('exist');
+  }
+});
