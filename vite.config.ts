@@ -1,9 +1,13 @@
 import react from '@vitejs/plugin-react';
+import * as path from 'path';
 import { defineConfig } from 'vite';
 import { VitePluginFonts } from 'vite-plugin-fonts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
+  },
   plugins: [
     react(),
     VitePluginFonts({
