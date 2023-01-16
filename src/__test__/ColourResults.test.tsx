@@ -1,7 +1,7 @@
+import { ColourResults } from '@/src/components/ColourResults';
+import { generateRGBHSL } from '@/src/lib/utils';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { ColourResults } from '../components/ColourResults';
-import { generateRGBHSL } from '../lib/utils';
 import { readFakeData } from './__mocks__/fakeData';
 
 test('ColourResults show error message when theres an error', async () => {

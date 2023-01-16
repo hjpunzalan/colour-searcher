@@ -6,10 +6,11 @@ interface Props {
 }
 
 export const ColourTable: React.FC<Props> = ({ colours }) => {
+  if (colours.length === 0) return null;
   return (
     <Table style={{ width: '100%' }}>
       <thead>
-        <tr>
+        <tr data-testid="colour-table-head">
           <td />
           <TableHeadLabel>Name</TableHeadLabel>
           <TableHeadLabel>Hex</TableHeadLabel>
@@ -17,7 +18,7 @@ export const ColourTable: React.FC<Props> = ({ colours }) => {
           <TableHeadLabel>HSL</TableHeadLabel>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-testid="colour-table-body">
         {colours.map((c) => (
           <tr key={c.hex} style={{ marginBottom: '1rem' }}>
             <td>
