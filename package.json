@@ -15,10 +15,10 @@
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "cypress:open": "cypress open",
-    "cypress:start": "start-server-and-test --expect 200 preview http://127.0.0.1:4173 cypress:open",
+    "cypress:start": "start-server-and-test --expect 200 preview http://127.0.0.1:4173/colour-searcher/ cypress:open",
     "cypress:build": "npm run build && npm run cypress:start",
     "cypress:build:run": "npm run build && npm run cypress:run",
-    "cypress:run": "start-server-and-test --expect 200 preview http://127.0.0.1:4173 'cypress run --browser chrome'"
+    "cypress:run": "start-server-and-test --expect 200 preview http://127.0.0.1:4173/colour-searcher/ 'cypress run --browser chrome'"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
