@@ -16,7 +16,7 @@ operate in the following way:
   d-colors.json
 - Once the colours are fetched, display them all in a large table containing information
   about each color.
-  ● Allow the user to search the colours by inputting a CSS colour code (Ie. “#FF0000”,
+- Allow the user to search the colours by inputting a CSS colour code (Ie. “#FF0000”,
   “rgb(255,0,0)”) and hitting Enter.
 - If the inputted colour is valid, sort the colours by their similarity to the inputted
   colour and display the top ~100 results. You will need to think of a good algorithm to
