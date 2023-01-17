@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Cypress run Chrome
-        uses: cypress-io/github-action@v5.x.x # use the explicit version number
+        uses: cypress-io/github-action@v5
         with:
           browser: chrome
           build: npm run build
