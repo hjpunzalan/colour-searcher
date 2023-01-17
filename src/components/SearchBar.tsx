@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row } from '../App';
+import { Row } from './Common';
 
 interface Props {
   colour: string;

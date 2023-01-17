@@ -1,10 +1,10 @@
-import { Stack } from '@/src/App';
 import { colord } from 'colord';
 import styled from 'styled-components';
 import { useSWRConfig } from 'swr';
 import { XKCD_JSON } from '../config';
 import { ColourData } from '../lib/types';
 import { ColourTable } from './ColourTable';
+import { Stack } from './Common';
 
 interface Props {
   searchColour: string;
@@ -27,8 +27,7 @@ export const ColourResults: React.FC<Props> = ({ searchColour, rawColours, colou
             // https://swr.vercel.app/docs/mutation#revalidation
             // mutate will revalidate fetch
             mutate(XKCD_JSON);
-          }}
-        >
+          }}>
           Refetch
         </Button>
       </Stack>

@@ -1,8 +1,8 @@
 import { colord } from 'colord';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import useSWR from 'swr';
 import { ColourResults } from './components/ColourResults';
+import { Stack } from './components/Common';
 import { SearchBar } from './components/SearchBar';
 import { XKCD_JSON } from './config';
 import useDebounce from './hooks/useDebounce';
@@ -23,7 +23,9 @@ const App = () => {
       const colourData = generateRGBHSL(data.colors);
 
       // Set colour group only if its empty (error or initial fetch)
-      if (colours.length === 0) setColours(colourData);
+      if (colours.length === 0) {
+        setColours(colourData);
+      }
       return colourData;
     },
     {
@@ -68,15 +70,3 @@ const App = () => {
 };
 
 export default App;
-
-export const Stack = styled.div<{ gap?: string }>`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.gap || 0};
-`;
-
-export const Row = styled.div<{ gap?: string }>`
-  display: flex;
-  align-items: stretch;
-  gap: ${(props) => props.gap || 0};
-`;
