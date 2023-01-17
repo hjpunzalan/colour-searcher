@@ -1,5 +1,32 @@
 # Colour Searcher
 
+A simple colour searcher that pulls colour data and sort by similarity according to the colour provided.
+
+## Objective
+
+To create a single-page website in React that contains a colour search tool. The tool should
+operate in the following way:
+
+- Starts by doing a GET request to all colours from the XKCD colours JSON file:
+  https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkc
+  d-colors.json
+- Once the colours are fetched, display them all in a large table containing information
+  about each color.
+  ● Allow the user to search the colours by inputting a CSS colour code (Ie. “#FF0000”,
+  “rgb(255,0,0)”) and hitting Enter.
+- If the inputted colour is valid, sort the colours by their similarity to the inputted
+  colour and display the top ~100 results. You will need to think of a good algorithm to
+  do this.
+
+Optional bonus functionality:
+
+- If the inputted colour is invalid and the user hits Enter, display an error message
+  saying that the colour is invalid.
+- If supported by the browser, add a native colour picker to the colour input:
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color
+- If the initial fetch of the colours fails, show a Retry button that retries the fetch when
+  clicked.
+
 _Dependencies_
 
 - [node](https://nodejs.org/en/)
@@ -20,11 +47,28 @@ Start project
 npm run dev
 ```
 
+Start Jest
+
+```
+npm run test
+```
+
+Start Cypress
+
+```
+npm run cypress:build
+```
+
 Git hook Husky will run eslint and prettier per commit
 
 ## Stack
 
-- Vite.js with React
+- React
+- Vite
+- Colord
+- Styled Components
+- Jest
+- Cypress
 
 ## Style
 
