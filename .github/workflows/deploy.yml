@@ -36,7 +36,7 @@ jobs:
         with:
           browser: chrome
           start: npm run preview
-          wait-on: 'http://127.0.0.1:4173/'
+          wait-on: 'http://127.0.0.1:4173/colour-searcher'
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
