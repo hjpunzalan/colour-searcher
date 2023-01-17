@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://hjpunzalan.github.io/colour-searcher",
   "scripts": {
     "predev": "npm run prepare",
     "dev": "vite",
