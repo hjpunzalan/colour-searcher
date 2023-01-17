@@ -12,8 +12,7 @@ To create a single-page website in React that contains a colour search tool. The
 operate in the following way:
 
 - Starts by doing a GET request to all colours from the XKCD colours JSON file:
-  https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkc
-  d-colors.json
+  https://raw.githubusercontent.com/okmediagroup/color-test-resources/master/xkcd-colors.json
 - Once the colours are fetched, display them all in a large table containing information
   about each color.
 - Allow the user to search the colours by inputting a CSS colour code (Ie. “#FF0000”,
