@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: CI/CD
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -37,6 +37,25 @@ jobs:
           browser: chrome
           start: npm run preview
           wait-on: 'http://127.0.0.1:4173/'
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-files
+          path: ./dist
+
+  deploy:
+    name: Deploy
+    needs: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: production-files
+          path: ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
