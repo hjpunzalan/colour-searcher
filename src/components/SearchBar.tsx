@@ -29,8 +29,8 @@ export const SearchBar: React.FC<Props> = ({ colour, setColour, disabled }) => {
           disabled={disabled}
           type="color"
           value={colour}
-          onChange={(e) => {
-            setColour(e.target.value);
+          onInput={(e) => {
+            setColour(e.currentTarget.value);
           }}
           placeholder="Enter Colour"
         />

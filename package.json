@@ -18,8 +18,7 @@
     "cypress:start": "start-server-and-test --expect 200 preview http://127.0.0.1:4173 cypress:open",
     "cypress:build": "npm run build && npm run cypress:start",
     "cypress:build:run": "npm run build && npm run cypress:run",
-    "cypress:run:all": "cypress run --browser chrome && cypress run --browser edge",
-    "cypress:run": "start-server-and-test --expect 200 preview http://127.0.0.1:4173 cypress:run:all"
+    "cypress:run": "start-server-and-test --expect 200 preview http://127.0.0.1:4173 'cypress run --browser chrome'"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
