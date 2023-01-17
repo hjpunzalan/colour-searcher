@@ -12,6 +12,7 @@ import { colourDistance, generateRGBHSL } from './lib/utils';
 const App = () => {
   const [colours, setColours] = useState<ColourData[]>([]);
   const [colour, setColour] = useState('');
+
   const searchColour = useDebounce(colour);
   const { data: rawColours, error } = useSWR(
     XKCD_JSON,
