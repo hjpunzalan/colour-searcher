@@ -1,7 +1,11 @@
 # Colour Searcher
 
 A simple colour searcher that pulls colour data and sort by similarity according to the colour provided.
+
 To calculate colour similarity, it utilises the pythagorean theorem in 3D to find the shortest distance from the RGB values of the colour.
+
+![image](https://user-images.githubusercontent.com/47600145/212788715-ea08e364-c7f0-40cd-ba72-d39eee24e63e.png)
+
 
 ## Objective
 
