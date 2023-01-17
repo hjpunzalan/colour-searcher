@@ -6,7 +6,6 @@ To calculate colour similarity, it utilises the pythagorean theorem in 3D to fin
 
 [![image](https://user-images.githubusercontent.com/47600145/212788889-f138a700-a124-450f-b00d-ce830d9deedd.png)](https://www.mathsisfun.com/geometry/images/pythagoras-3d-a.svg)
 
-
 ## Objective
 
 To create a single-page website in React that contains a colour search tool. The tool should

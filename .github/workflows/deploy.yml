@@ -60,7 +60,7 @@ jobs:
           wait-on: 'http://127.0.0.1:4173/'
   deploy:
     name: Deploy
-    needs: cypress-run
+    needs: cypress
     runs-on: ubuntu-latest
 
     steps:
