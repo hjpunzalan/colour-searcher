@@ -4,7 +4,7 @@ A simple colour searcher that pulls colour data and sort by similarity according
 
 To calculate colour similarity, it utilises the pythagorean theorem in 3D to find the shortest distance from the RGB values of the colour.
 
-![image](https://user-images.githubusercontent.com/47600145/212788889-f138a700-a124-450f-b00d-ce830d9deedd.png)
+[![image](https://user-images.githubusercontent.com/47600145/212788889-f138a700-a124-450f-b00d-ce830d9deedd.png)](https://www.mathsisfun.com/geometry/images/pythagoras-3d-a.svg)
 
 
 ## Objective
