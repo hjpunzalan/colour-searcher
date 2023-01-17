@@ -34,7 +34,7 @@ test('ColoursTable should have correct table heads', async () => {
   expect(tableHead.children[4].textContent?.toLowerCase()).toContain('hsl');
 });
 
-test('table body should have correct number of children and has correct table data', async () => {
+test('Table body should have correct number of children and has correct table data', async () => {
   const { fakeColourResponse } = readFakeData();
   const dataLength = fakeColourResponse.colors.length;
   const colours = generateRGBHSL(fakeColourResponse.colors.slice(0, dataLength));

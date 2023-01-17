@@ -4,7 +4,7 @@ import '@testing-library/cypress';
 import { cy, it } from 'local-cypress';
 import { interceptIndefinitely } from '../support/utils';
 
-it('display loading initially and disable text and colour input', () => {
+it('Display loading initially and disable text and colour input', () => {
   const interception = interceptIndefinitely(XKCD_JSON);
   cy.visit('/');
 
@@ -21,19 +21,19 @@ it('display loading initially and disable text and colour input', () => {
       }
     });
 });
-it('displays correct heading when on homepage', () => {
+it('Displays correct heading when on homepage', () => {
   cy.visit('/');
   cy.findByRole('heading', {
     name: /Colour Searcher/i
   }).should('exist');
 });
 
-it('display all colours text initially after loading', () => {
+it('Display all colours text initially after loading', () => {
   cy.visit('/');
   cy.findByText(/all colours./i).should('exist');
 });
 
-it('display error message when fetch fails and disable text and colour input', () => {
+it('Display error message when fetch fails and disable text and colour input', () => {
   cy.intercept(
     XKCD_JSON,
     { times: 1 },
@@ -51,7 +51,7 @@ it('display error message when fetch fails and disable text and colour input', (
   cy.findByText(/Error: unable to source XKCD colour file/i).should('exist');
 });
 
-it('show button on error,  disable text and colour input and refetch on click (display all colours)', () => {
+it('Show button on error,  disable text and colour input and refetch on click (display all colours)', () => {
   cy.intercept(
     XKCD_JSON,
     { times: 1 },
@@ -127,7 +127,7 @@ it('Colour Input: displays top 100 similar colours with valid colour code input 
   }
 });
 
-it('displays invalid colour code warning upon invalid input and hides table', () => {
+it('Displays invalid colour code warning upon invalid input and hides table', () => {
   cy.visit('/');
   cy.findByLabelText(/colour/i).type('test');
 
@@ -136,7 +136,7 @@ it('displays invalid colour code warning upon invalid input and hides table', ()
   cy.findByRole('table').should('not.exist');
 });
 
-it('deleting to blank input fetch original data of more than 100', () => {
+it('Deleting blank input will fetch original data that is more than 100', () => {
   cy.visit('/');
   cy.findByLabelText(/colour/i).type('test');
 
