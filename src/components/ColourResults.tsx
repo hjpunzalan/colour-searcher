@@ -27,7 +27,8 @@ export const ColourResults: React.FC<Props> = ({ searchColour, rawColours, colou
             // https://swr.vercel.app/docs/mutation#revalidation
             // mutate will revalidate fetch
             mutate(XKCD_JSON);
-          }}>
+          }}
+        >
           Refetch
         </Button>
       </Stack>
