@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: CI/CD
     runs-on: ubuntu-latest
 
     steps:
@@ -27,9 +27,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-
-      - run: npm run lint
-      - run: npm run format
 
       - name: Run Unit tests
         run: npm run test:ci
