@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/extend-expect';
-import 'isomorphic-fetch';
 import { server } from './src/__test__/__mocks__/msw/server';
 
 // Establish API mocking before all tests.
