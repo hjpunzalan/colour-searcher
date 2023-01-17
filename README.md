@@ -57,7 +57,7 @@ Start Jest
 npm run test
 ```
 
-Start Cypress
+Start Cypress (Chrome) - differences between browsers is minimal therefore unnecessary
 
 ```
 npm run cypress:build
