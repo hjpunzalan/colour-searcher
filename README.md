@@ -64,6 +64,16 @@ npm run cypress:build
 
 Git hook Husky will run eslint and prettier per commit
 
+```
+npm run prepare
+```
+
+Permission issues may occur with mac and linux machines, will need to run:
+
+```
+chmod ug+x .husky/*
+```
+
 ## Stack
 
 - React
