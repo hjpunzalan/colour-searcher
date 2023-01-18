@@ -1,5 +1,6 @@
 import { XKCD_JSON } from '@/src/config';
 import '@testing-library/cypress';
+import { checkColoursIsSorted } from './../support/utils';
 
 import { cy, it } from 'local-cypress';
 import { interceptIndefinitely } from '../support/utils';
@@ -91,19 +92,7 @@ it('Input Text: displays top 100 similar colours with valid colour code input te
   cy.findByText(/results for/i).should('exist');
   cy.findByText(/ff0000"/i).should('exist');
 
-  // Check number of similar colours is 100
-  cy.findByTestId('colour-table-body').find('tr').should('have.length', 100);
-
-  // Check top 3 result is very close to red
-  for (let i = 0; i <= 2; i++) {
-    cy.findByTestId('colour-table-body')
-      .children()
-      .eq(i)
-      .children()
-      .eq(1)
-      .findByText(/red/i)
-      .should('exist');
-  }
+  checkColoursIsSorted('#ff0000');
 });
 
 it('Colour Input: displays top 100 similar colours with valid colour code input color', () => {
@@ -112,19 +101,7 @@ it('Colour Input: displays top 100 similar colours with valid colour code input 
   cy.wait('@fetchData');
   cy.findByTestId('colour-picker').invoke('val', '#ff0000').trigger('input');
 
-  // Check number of similar colours is 100
-  cy.findByTestId('colour-table-body').find('tr').should('have.length', 100);
-
-  // Check top 3 result has red
-  for (let i = 0; i <= 2; i++) {
-    cy.findByTestId('colour-table-body')
-      .children()
-      .eq(i)
-      .children()
-      .eq(1)
-      .findByText(/red/i)
-      .should('exist');
-  }
+  checkColoursIsSorted('#ff0000');
 });
 
 it('Displays invalid colour code warning upon invalid input and hides table', () => {
